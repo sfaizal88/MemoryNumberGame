@@ -62,22 +62,20 @@ export const PlayScreen = ({ navigation }) => {
         }
       });
     }
-    setTimeout(() => {
-      // STATIC VALUE 
-      setNum(Utils.createStaticRandNumber(Constant.GENERIC.CARD_PAIRS_VALUE));
-      // RESET THE STEP
-      setSteps(0);
-      // RESET THE CHECK NUMBER
-      setCheckNumber([]);
-      // RESET THE MATCH NUMBER
-      setMatchNumber([]);
-      // RESET THE CHECK INDEX NUMBER
-      setCheckNumberIndex([]);
-      // RESET THE MATCH INDEX NUMBER
-      setMatchNumberIndex([])
-      // ENABLE BACK ALL CARD
-      setDisableAllCard(false);
-    }, 200);
+    // STATIC VALUE 
+    setNum(Utils.createStaticRandNumber(Constant.GENERIC.CARD_PAIRS_VALUE));
+    // RESET THE STEP
+    setSteps(0);
+    // RESET THE CHECK NUMBER
+    setCheckNumber([]);
+    // RESET THE MATCH NUMBER
+    setMatchNumber([]);
+    // RESET THE CHECK INDEX NUMBER
+    setCheckNumberIndex([]);
+    // RESET THE MATCH INDEX NUMBER
+    setMatchNumberIndex([])
+    // ENABLE BACK ALL CARD
+    setDisableAllCard(false);
   }
 
   /**
