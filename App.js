@@ -8,7 +8,7 @@
 *
 ***/
 import React, {useState, useEffect} from 'react';
-import { SafeAreaView, View, TouchableOpacity, TouchableHighlight, StatusBar} from 'react-native';
+import { SafeAreaView, View, TouchableOpacity, TouchableHighlight, StatusBar, LogBox} from 'react-native';
 import CardFlip from 'react-native-card-flip';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -24,6 +24,7 @@ import { Colors } from './src/shared/colors';
 import { HomeScreen } from './src/view/home';
 import { PlayScreen } from './src/view/play';
 
+//LogBox.ignoreAllLogs(Constant.GENERIC.DISABLE_LOG);
 //console.disableYellowBox = Constant.GENERIC.DISABLE_LOG;
 export default App = (props) => {
 

@@ -35,4 +35,5 @@ export const playAudio = (path, volume = 1) => {
         soundActive.release();
       });
     });
-  }
+  return true;
+}

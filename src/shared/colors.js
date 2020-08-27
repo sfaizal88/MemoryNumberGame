@@ -21,5 +21,6 @@ export const Colors = {
   cardFront: '#c44569',
   cardBack: '#c44569',
   cardText: '#353b48',
-  green: '#27ae60'
+  green: '#27ae60',
+  skin: '#fab1a0'
 };

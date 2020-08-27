@@ -10,6 +10,8 @@ target 'NumberGame' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
+  pod 'RNSound', :path => '../node_modules/react-native-sound'
+
   target 'NumberGameTests' do
     inherit! :complete
     # Pods for testing

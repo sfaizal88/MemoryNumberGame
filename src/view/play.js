@@ -51,11 +51,15 @@ export const PlayScreen = ({ navigation }) => {
     Sound.playAudio(Constant.GENERIC.RESTART_AUDIO);
     // FLIP BACK ALL THE FLIPPED CARD
     indexList.forEach(item => {
-      this[`card${item}`].flip();
+      if (this[`card${item}`]) {
+        this[`card${item}`].flip();
+      }
     });
     if (indexList.length !== num.length) {
       checkNumberIndex.forEach(item => {
-        this[`card${item}`].flip();
+        if (this[`card${item}`]) {
+          this[`card${item}`].flip();
+        }
       });
     }
     setTimeout(() => {
@@ -114,23 +118,19 @@ export const PlayScreen = ({ navigation }) => {
         let matchedValue = [...nums, ...matchNumber];
         let matchedIndex = [...indexs, ...matchNumberIndex];
 
-        // PLAY CORRECT SOUND AFTER 0.5 SECOND
-        setTimeout(() => {
-          // PLAY CORRECT SOUND
-          Sound.playAudio(Constant.GENERIC.CORRECT_AUDIO);
+        // PLAY CORRECT SOUND
+        Sound.playAudio(Constant.GENERIC.CORRECT_AUDIO);
 
-          // UPDATE THE STATE 
-          setMatchNumber(matchedValue);
-          setMatchNumberIndex(matchedIndex);
+        // UPDATE THE STATE 
+        setMatchNumber(matchedValue);
+        setMatchNumberIndex(matchedIndex);
 
-          // RESET THE STATE TO INITIAL VALUE
-          setCheckNumber([]);
-          setCheckNumberIndex([]);
+        // RESET THE STATE TO INITIAL VALUE
+        setCheckNumber([]);
+        setCheckNumberIndex([]);
 
-          // CHECK WHETHER ALL THE CARD ARE CORRECTR AND FLIPPED
-          checkWinner(matchedValue, matchedIndex);
-        }, 500);
-        
+        // CHECK WHETHER ALL THE CARD ARE CORRECTR AND FLIPPED
+        checkWinner(matchedValue, matchedIndex);
 
         // ENABLE BACK ALL CARD
         setDisableAllCard(false);
@@ -198,7 +198,7 @@ export const PlayScreen = ({ navigation }) => {
   return (
     <>
       <SafeAreaView style={[styles.safeViewContainer]}>
-      <View style={[styles.body, styles.gameContainer]}>
+      <View style={[styles.body, styles.gameContainer]} testID={'PLAY_GAME_PAGE_TESTID'}>
         <View style={{height: 150, flexDirection: 'row'}}>
           <TouchableOpacity style={[styles.controlBox]} onPress={() => resetGame()} testID={'RESET_GAME_TESTID'}>
             <View style={[styles.circleIconContainer]}>
@@ -208,7 +208,7 @@ export const PlayScreen = ({ navigation }) => {
           </TouchableOpacity>
           <View style={[styles.controlBox]}>
             <View style={[styles.circleIconContainer]}>
-              <Text style={[styles.circleIconText]}>{steps ? steps : 0}</Text>
+              <Text style={[styles.circleIconText]}  testID="REST_COUNT_TESTID" value="55">{steps ? steps : 0}</Text>
             </View>
             <Text style={[styles.controlBoxLabel]}>Steps</Text>
           </View>
@@ -232,49 +232,3 @@ export const PlayScreen = ({ navigation }) => {
     </>
   );
 }
-
-/*
-<CardFlip style={[styles.card]} ref={(card) => ( this[`card${0 + item}`] = card)} testID={'CARD_' + (0 + item)}>
-  <TouchableOpacity testID={'CARD_FRONT_' + (0 + item)} disabled={checkNumber.length > 1 || matchNumber.indexOf(num[0 + item]) > -1} style={styles.cardFront} onPress={() => {checkNum(0 + item, this[`card${0 + item}`])}} >
-    <View style={[styles.cardFrontInner]}>
-      <Text style={[styles.cardLabel]}>
-        <Icon name={'question'} size={RFValue(40)} color={Colors.white} type='font-awesome-5'/>
-      </Text>
-    </View>
-  </TouchableOpacity>
-  <TouchableOpacity testID={'CARD_BACK_' + (0 + item)} disabled={checkNumber.length > 1 || matchNumber.indexOf(num[0 + item]) > -1 || checkNumber.indexOf(num[0 + item]) > -1} style={styles.cardBack} onPress={() => this[`card${0 + item}`].flip()} >
-    <View style={[styles.cardBackInner]}>
-      <Text style={[styles.cardMatchedLabel]}>{num[0 + item]}</Text>
-    </View>
-  </TouchableOpacity>
-</CardFlip>
-
-<CardFlip style={[styles.card]} ref={(card) => ( this[`card${1 + item}`] = card)} testID={'CARD_' + (1 + item)}>
-  <TouchableOpacity testID={'CARD_FRONT_' + (1 + item)} disabled={checkNumber.length > 1 || matchNumber.indexOf(num[1 + item]) > -1} style={styles.cardFront} onPress={() => {checkNum(1 + item, this[`card${1 + item}`])}} >
-    <View style={[styles.cardFrontInner]}>
-      <Text style={[styles.cardLabel]}>
-        <Icon name={'question'} size={RFValue(40)} color={Colors.white} type='font-awesome-5'/>
-      </Text>
-    </View>
-  </TouchableOpacity>
-  <TouchableOpacity testID={'CARD_BACK_' + (1 + item)} disabled={checkNumber.length > 1 || matchNumber.indexOf(num[1 + item]) > -1 || checkNumber.indexOf(num[1 + item]) > -1} style={styles.cardBack} onPress={() => this[`card${1 + item}`].flip()} >
-    <View style={[styles.cardBackInner]}>
-      <Text style={[styles.cardMatchedLabel]}>{num[1 + item]}</Text>
-    </View>
-  </TouchableOpacity>
-</CardFlip>
-<CardFlip style={[styles.card]} ref={(card) => ( this[`card${2 + item}`] = card)} testID={'CARD_' + (2 + item)}>
-  <TouchableOpacity testID={'CARD_FRONT_' + (2 + item)} disabled={checkNumber.length > 1 || matchNumber.indexOf(num[2 + item]) > -1} style={styles.cardFront} onPress={() => {checkNum(2 + item, this[`card${2 + item}`])}}>
-    <View style={[styles.cardFrontInner]}>
-      <Text style={[styles.cardLabel]}>
-        <Icon name={'question'} size={RFValue(40)} color={Colors.white} type='font-awesome-5'/>
-      </Text>
-    </View>
-  </TouchableOpacity>
-  <TouchableOpacity testID={'CARD_BACK_' + (2 + item)} disabled={checkNumber.length > 1 || matchNumber.indexOf(num[2 + item]) > -1 || checkNumber.indexOf(num[2 + item]) > -1} style={styles.cardBack} onPress={() => this[`card${2 + item}`].flip()}>
-    <View style={[styles.cardBackInner]}>
-      <Text style={[styles.cardMatchedLabel]}>{num[2 + item]}</Text>
-    </View>
-  </TouchableOpacity>
-</CardFlip>
-*/

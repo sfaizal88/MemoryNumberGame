@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for NumberGame/App.js</title>
+    <title>Code coverage report for NumberGame/src/view/home.js</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../prettify.css" />
-    <link rel="stylesheet" href="../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../sort-arrow-sprite.png);
+            background-image: url(../../../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">NumberGame</a> App.js</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">NumberGame/src/view</a> home.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>5/6</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">66.67% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>2/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>5/6</span>
             </div>
         
             
@@ -114,9 +114,7 @@
 <a name='L55'></a><a href='#L55'>55</a>
 <a name='L56'></a><a href='#L56'>56</a>
 <a name='L57'></a><a href='#L57'>57</a>
-<a name='L58'></a><a href='#L58'>58</a>
-<a name='L59'></a><a href='#L59'>59</a>
-<a name='L60'></a><a href='#L60'>60</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L58'></a><a href='#L58'>58</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -139,6 +137,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -149,21 +149,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -177,63 +173,61 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
 *
-* App.js
-* Start of the file
+* home.js
+* Game start screen
 *
 * @author - Ahamed
 * @date   - 26 August 2020
 *
 ***/
+// REACT NATIVE IMPORT
 import React, {useState, useEffect} from 'react';
-import { SafeAreaView, View, TouchableOpacity, TouchableHighlight, StatusBar, LogBox} from 'react-native';
+import { SafeAreaView, View, Text, StatusBar, TouchableOpacity, Image} from 'react-native';
+import { Button, Icon } from 'react-native-elements';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import CardFlip from 'react-native-card-flip';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import SplashScreen from 'react-native-splash-screen';
 &nbsp;
 // ALL SHARED FILES
-import * as Utils from './src/shared/utils';
-import * as Constant from './src/shared/constant';
-import { styles } from './src/shared/stylesheet';
-import { Colors } from './src/shared/colors';
+import Images from '../../assets/index';
+import * as Utils from '../shared/utils';
+import * as Constant from '../shared/constant';
+import { styles } from '../shared/stylesheet';
+import * as Sound from '../shared/sound';
+import { Colors } from '../shared/colors';
 &nbsp;
-// ALL NAVIGATION
-import { HomeScreen } from './src/view/home';
-import { PlayScreen } from './src/view/play';
+export const HomeScreen = ({ navigation }) =&gt; {
 &nbsp;
-//LogBox.ignoreAllLogs(Constant.GENERIC.DISABLE_LOG);
-//console.disableYellowBox = Constant.GENERIC.DISABLE_LOG;
-export default App = (props) =&gt; {
-&nbsp;
-  // DECLARE NAVIGATION
-  const Stack = createStackNavigator();
-&nbsp;
-  // LOCAL VARIABLE DECLARATION
-  const navigatorConfig = {
-    title: '',
-    headerBackTitle: '',
-    headerShown: false,
-    gestureEnabled: false
+  
+  /**
+  * START GAME WHEN USER CLICKED THE START BUTTON
+  *
+  * @input  NA
+  * @return NA
+  */
+  const startGame = () =&gt; {
+    // PLAY CLICK SOUND
+    Sound.playAudio(Constant.GENERIC.CLICK_AUDIO);
+    // NAVIGATING TO PLAY GAME SCREEN
+    navigation.navigate("PlayGame");
   }
 &nbsp;
-  // USE EFFECT ON LOAD PROCESS
-  useEffect(() =&gt; {
-    // UPDATE STATUS COLOR
-    StatusBar.setBarStyle(Constant.GENERIC.STATUS_BAR);
-  }, []);
-&nbsp;
+  // RENDER HTML
   return (
     &lt;&gt;
-      &lt;StatusBar hidden/&gt;
-      &lt;NavigationContainer&gt;
-        &lt;Stack.Navigator initialRouteName={'Home'}&gt;
-          &lt;Stack.Screen name="Home" component={HomeScreen}  options={{...navigatorConfig}}/&gt;
-          &lt;Stack.Screen name="PlayGame" component={PlayScreen}  options={{...navigatorConfig}} /&gt;
-        &lt;/Stack.Navigator&gt;
-      &lt;/NavigationContainer&gt;
+      &lt;SafeAreaView style={[styles.safeViewContainer]}&gt;
+        &lt;View style={[styles.body, styles.centerView]} testID={'HOME_PAGE_TESTID'}&gt;
+          &lt;TouchableOpacity onPress={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >startGame()}</span> style={[styles.gameStartPageContainer]}&gt;
+            &lt;Text style={[styles.gameTitle]}&gt;Magical Flip&lt;/Text&gt;
+            &lt;Icon name={'brain'} size={RFValue(200)} color={Colors.skin} type='font-awesome-5' iconStyle={[styles.gameTitleImg]}/&gt;
+            &lt;Button title="Start Game" titleStyle={[styles.btnLabel]} buttonStyle={[styles.btn]}
+            icon={&lt;Icon name={'play'} size={RFValue(15)} color={Colors.white} type='font-awesome'/&gt;} 
+            onPress={startGame} testID={'START_GAME_BTN_TESTID'}/&gt;
+          &lt;/TouchableOpacity&gt;
+        &lt;/View&gt;
+      &lt;/SafeAreaView&gt;
     &lt;/&gt;
   );
-};
+}
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -244,14 +238,14 @@ export default App = (props) =&gt; {
                 at Thu Aug 27 2020 16:12:40 GMT+0800 (Singapore Standard Time)
             </div>
         </div>
-        <script src="../prettify.js"></script>
+        <script src="../../../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../sorter.js"></script>
-        <script src="../block-navigation.js"></script>
+        <script src="../../../sorter.js"></script>
+        <script src="../../../block-navigation.js"></script>
     </body>
 </html>
     

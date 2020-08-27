@@ -14,10 +14,8 @@ import { Button, Icon } from 'react-native-elements';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import CardFlip from 'react-native-card-flip';
 
-// ICONS
-import MemoryIcon from '../../assets/img/card-game.png';
-
 // ALL SHARED FILES
+import Images from '../../assets/index';
 import * as Utils from '../shared/utils';
 import * as Constant from '../shared/constant';
 import { styles } from '../shared/stylesheet';
@@ -26,7 +24,7 @@ import { Colors } from '../shared/colors';
 
 export const HomeScreen = ({ navigation }) => {
 
-
+  
   /**
   * START GAME WHEN USER CLICKED THE START BUTTON
   *
@@ -44,13 +42,13 @@ export const HomeScreen = ({ navigation }) => {
   return (
     <>
       <SafeAreaView style={[styles.safeViewContainer]}>
-        <View style={[styles.body, styles.centerView]}>
+        <View style={[styles.body, styles.centerView]} testID={'HOME_PAGE_TESTID'}>
           <TouchableOpacity onPress={() => startGame()} style={[styles.gameStartPageContainer]}>
             <Text style={[styles.gameTitle]}>Magical Flip</Text>
-            <Image source={MemoryIcon} style={[styles.img200, styles.gameTitleImg]}/>
+            <Icon name={'brain'} size={RFValue(200)} color={Colors.skin} type='font-awesome-5' iconStyle={[styles.gameTitleImg]}/>
             <Button title="Start Game" titleStyle={[styles.btnLabel]} buttonStyle={[styles.btn]}
             icon={<Icon name={'play'} size={RFValue(15)} color={Colors.white} type='font-awesome'/>} 
-            onPress={startGame}/>
+            onPress={startGame} testID={'START_GAME_BTN_TESTID'}/>
           </TouchableOpacity>
         </View>
       </SafeAreaView>

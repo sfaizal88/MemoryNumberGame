@@ -9,7 +9,7 @@
 ***/
 // REACT NATIVE IMPORT
 import React, {useState, useEffect} from 'react';
-import { SafeAreaView, View, Text, StatusBar, TouchableOpacity, Image} from 'react-native';
+import { SafeAreaView, View, Text, StatusBar, TouchableOpacity} from 'react-native';
 import { Icon } from 'react-native-elements';
 import CardFlip from 'react-native-card-flip';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
@@ -22,6 +22,8 @@ import * as Sound from '../../shared/sound';
 import { Colors } from '../../shared/colors';
 
 export const FlipCard = (props) => {
+
+
 	return (
 		<CardFlip style={[styles.card]} ref={(card) => ( this[`card${props.cardId}`] = card)} testID={'CARD_' + props.cardId}>
           <TouchableOpacity testID={'CARD_FRONT_' + props.cardId} disabled={props.disableFlipCard  || props.matchNumber.indexOf(props.num[props.cardId]) > -1} style={styles.cardFront} onPress={() => {props.checkNum(props.cardId, this[`card${props.cardId}`])}} >
