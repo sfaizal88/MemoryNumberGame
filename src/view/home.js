@@ -13,6 +13,7 @@ import { SafeAreaView, View, Text, StatusBar, TouchableOpacity, Image} from 'rea
 import { Button, Icon } from 'react-native-elements';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import CardFlip from 'react-native-card-flip';
+import SendSMS from 'react-native-sms';
 
 // ALL SHARED FILES
 import Images from '../../assets/index';
@@ -38,6 +39,18 @@ export const HomeScreen = ({ navigation }) => {
     navigation.navigate("PlayGame");
   }
 
+  const sendSMS = () => {
+    SendSMS.send({
+        body: 'The default body of the SMS!',
+        recipients: ['006594477814', '+6594477814'],
+        successTypes: ['sent', 'queued'],
+        allowAndroidSendWithoutReadPermission: true
+    }, (completed, cancelled, error) => {
+        console.log('SMS Callback: completed: ' + completed + ' cancelled: ' + cancelled + 'error: ' + error);
+ 
+    });
+  }
+
   // RENDER HTML
   return (
     <>
@@ -49,6 +62,9 @@ export const HomeScreen = ({ navigation }) => {
             <Button title="Start Game" titleStyle={[styles.btnLabel]} buttonStyle={[styles.btn]}
             icon={<Icon name={'play'} size={RFValue(15)} color={Colors.white} type='font-awesome'/>} 
             onPress={startGame} testID={'START_GAME_BTN_TESTID'}/>
+            <Button title="Send" titleStyle={[styles.btnLabel]} buttonStyle={[styles.btn]}
+            icon={<Icon name={'play'} size={RFValue(15)} color={Colors.white} type='font-awesome'/>} 
+            onPress={sendSMS} testID={'START_GAME_BTN_TESTID'}/>
           </TouchableOpacity>
         </View>
       </SafeAreaView>

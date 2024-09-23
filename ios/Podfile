@@ -12,6 +12,8 @@ target 'NumberGame' do
 
   pod 'RNSound', :path => '../node_modules/react-native-sound'
 
+  pod 'react-native-sms', :path => '../node_modules/react-native-sms'
+
   target 'NumberGameTests' do
     inherit! :complete
     # Pods for testing
